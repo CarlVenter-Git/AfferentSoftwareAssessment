@@ -19,25 +19,14 @@ namespace AlgebraStringSolve
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            double answer;
-
-            try
-            {
-                var v = dataTable.Compute(txtEquation.Text, "");
-                Double.TryParse(v.ToString(), out answer);
-
-                txtAnswer.Text = answer.ToString("#.##");
-            }
-            catch (Exception)
-            {
-                txtAnswer.Text = "Illegal character used in expression. Please only use '+','-','*','/', '.' and digits";
-            }          
+            Calculate calculate = new Calculate();
+            
+            txtAnswer.Text = calculate.Calculation(txtEquation.Text);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        } 
     }
 }
